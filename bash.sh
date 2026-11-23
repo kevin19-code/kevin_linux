@@ -1,10 +1,20 @@
 #! /bin/bash
 
+echo "quieres agregar una red wifi ? (y/n)"
+read respuestaWIFI
+if [ $respuestaWIFI == "y" ]; then
+    echo "introduzca el nombre de la red wifi"
+    read nombreRed
+    echo "introduzca la contraseña de la red wifi"
+    read contrasenaRed
+    nmcli dev wifi connect $nombreRed password $contrasenaRed
+fi else
+    echo "ok no se agregara ninguna red wifi"
+fi
+
 apt update
 
 apt install samba crunch hydra ftp apache2 g++ hashcat fail2ban apparmor lynis gobuster crunch python3 php sqlite3 sqlitebrowser sqlmap conky-all flatpak pacman crispy-doom docker.io kate neovim vlc audacious fcitx5  fcitx5-configtool rofi flameshot curl wget git nmap wine wireshark curl wget git htop suricata lynis clamav binwalk gnupg golang-go netcat-traditional aircrack-ng smbclient
-
-
 
 
 echo "----------------------------------------------------------------"
@@ -128,4 +138,20 @@ swapon /swapfile
 
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
+
+echo "----------------------------------------------------------------"
+echo "Configuraciones extras"
+echo "----------------------------------------------------------------"
+
+
 powerprofilesctl set power-saver
+
+systemctl enable --now ufw
+systemctl disable apache2
+systemctl enable --now fail2ban
+
+clear
+
+
+
+echo "\e[32m Finalmente introduzca indique ]
