@@ -77,12 +77,11 @@ echo "YA!!! instalacion terminada"
 
 clear
 
-echo "prosiguiendo con los wordlist"
+echo "\e[32m Extra \e[0m"
 
-mkdir /home/$USER/wordlist
+mkdir /home/$USER/Ha/wordlist
 
-wget blob:https://github.com/7689b5e2-d70f-43b3-88e5-67d777cbd42f -o /home/$USER/wordlist/rockyou.txt
-
+gh repo clone pentestmonkey/php-reverse-shell
 
 echo "configuracion de swap"
 
